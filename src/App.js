@@ -1,11 +1,13 @@
-import './App.css';
+import React from "react";
+
+import Login from "./components/auth/Login";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        
-      </header>
+      <Login />
     </div>
   );
 }
