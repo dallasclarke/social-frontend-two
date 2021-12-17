@@ -19,9 +19,14 @@ function Register() {
     });
   };
 
+  const onSubmit = (e) => {
+      e.preventDefault();
+
+  }
+
   return (
     <div className="register">
-      <form>
+      <form onSubmit={(e) => onSubmit(e)}>
         <label>Email:</label>
         <input
           type="email"
