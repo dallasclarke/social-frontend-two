@@ -1,29 +1,33 @@
-import React from "react";
-
-import { Form, Row } from "react-bootstrap";
+import React, { useState } from "react";
 
 import "./Auth.css";
 
 function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <div className="login">
-      <Form>
-        <Form.Group>
-          <Form.Label>Email:</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="youremail@123.com"
-          />
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            required
-            type="password"
-            placeholder="Password"
-          />
-        </Form.Group>
-      </Form>
+      <form>
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="example@email.com" />
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Password" />
+        <input type="submit"  />
+      </form>
+      <p>Not a user?</p>
+      <a href="#">Sign up now</a>
     </div>
   );
 }
