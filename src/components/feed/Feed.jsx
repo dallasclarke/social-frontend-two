@@ -1,9 +1,14 @@
 import React, { useEffect } from "react";
 
+import Navbar from "../navbar/Navbar";
+
+import "./Feed.css";
+
 function Feed() {
   return (
-    <div>
-      <h1>Feed Component</h1>
+    <div className="feed">
+      <h1>Feed</h1>
+      <Navbar />
     </div>
   );
 }
