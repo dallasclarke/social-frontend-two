@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import setAuthToken from "./utils/setAuthToken";
+
+import store from "./store";
+import { loadUser } from "./actions/auth";
 
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import PrivateRoute from "./components/auth/PrivateRoute";
 import Feed from "./components/feed/Feed";
+import Profile from "./components/profile/Profile";
 
 import "./App.css";
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Router>
       <>
         <Switch>
-          {/* <Login /> */}
-          {/* <Register /> */}
-          {/* <Feed /> */}
           <Route path="/login" component={Login} />
-          <Route path="register" component={Register} />
-          
+          <Route path="/register" component={Register} />
+          <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/" component={Feed} />
         </Switch>
       </>
     </Router>

@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { login } from "../../actions/auth";
 
 import "./Auth.css";
 
@@ -10,6 +14,10 @@ function Login() {
 
   const { email, password } = formData;
 
+  const { isAuth } = useSelector((state) => state.auth);
+  // console.log(isAuth);
+  const dispatch = useDispatch();
+
   const onChange = (e) => {
     setFormData({
       ...formData,
@@ -17,14 +25,35 @@ function Login() {
     });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(email, password));
+  };
+
+  if (isAuth) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div className="login">
-      <form>
+      <form onSubmit={(e) => onSubmit(e)}>
         <label>Email:</label>
-        <input type="email" name="email" placeholder="example@email.com" />
+        <input
+          type="email"
+          name="email"
+          value={email}
+          placeholder="example@email.com"
+          onChange={(e) => onChange(e)}
+        />
         <label>Password:</label>
-        <input type="password" name="password" placeholder="Password" />
-        <input type="submit"  />
+        <input
+          type="password"
+          name="password"
+          value={password}
+          placeholder="Password"
+          onChange={(e) => onChange(e)}
+        />
+        <input type="submit" />
       </form>
       <p>Not a user?</p>
       <a href="#">Sign up now</a>

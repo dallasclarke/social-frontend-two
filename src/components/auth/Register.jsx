@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
+
+import { register } from "../../actions/auth";
 
 import "./Auth.css";
 
@@ -12,6 +16,9 @@ function Register() {
 
   const { email, password, fullName, birthday } = formData;
 
+  const { isAuth } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const onChange = (e) => {
     setFormData({
       ...formData,
@@ -19,9 +26,13 @@ function Register() {
     });
   };
 
-  const onSubmit = (e) => {
-      e.preventDefault();
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    dispatch(register({ email, password, fullName, birthday }));
+  };
 
+  if (isAuth) {
+    return <Redirect to="/" />;
   }
 
   return (
