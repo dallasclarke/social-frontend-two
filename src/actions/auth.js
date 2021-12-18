@@ -46,7 +46,9 @@ export const register =
         payload: res.data,
       });
       dispatch(loadUser());
-    } catch (err) {}
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
 export const login = (email, password) => async (dispatch) => {

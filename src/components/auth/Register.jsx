@@ -54,10 +54,10 @@ function Register() {
           onChange={(e) => onChange(e)}
           required
         />
-        <label>Name:</label>
+        <label>Full Name:</label>
         <input
           type="text"
-          name="name"
+          name="fullName"
           value={fullName}
           onChange={(e) => onChange(e)}
           required

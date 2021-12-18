@@ -56,7 +56,7 @@ function Login() {
         <input type="submit" />
       </form>
       <p>Not a user?</p>
-      <a href="#">Sign up now</a>
+      <Link to="/register">Sign up now</Link>
     </div>
   );
 }
