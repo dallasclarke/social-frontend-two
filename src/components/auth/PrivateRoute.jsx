@@ -9,7 +9,7 @@ function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) =>
-        !isAuth && !loading ? (
+        !isAuth ? (
           <Redirect to="/login" />
         ) : (
           <Component {...props} />
@@ -18,5 +18,6 @@ function PrivateRoute({ component: Component, ...rest }) {
     />
   );
 }
+
 
 export default PrivateRoute;

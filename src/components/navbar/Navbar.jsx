@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { logout } from "../../actions/auth";
@@ -19,7 +18,7 @@ function Navbar() {
           <a>Users</a>
         </li>
         <li>
-          <a onClick={() => dispatch(logout)}>Logoout</a>
+          <a onClick={() => dispatch(logout())}>Logoout</a>
         </li>
       </ul>
     </nav>
