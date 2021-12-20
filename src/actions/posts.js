@@ -25,7 +25,7 @@ export const addPost =
     }
   };
 
-export const getPosts = () => (dispatch) => {
+export const getPosts = () => async (dispatch) => {
   try {
     const res = await axios.get("/api/posts");
 
