@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../actions/posts";
 
 import Navbar from "../navbar/Navbar";
+import PostForm from "../postForm/PostForm";
 import Post from "../post/Post";
 
 import "./Feed.css";
@@ -20,6 +21,7 @@ function Feed() {
     <div className="feed">
       <h1>Feed</h1>
       <Navbar />
+      <PostForm />
       {posts.map((post) => (
         <Post
           key={post._id}

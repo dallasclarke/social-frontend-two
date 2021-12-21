@@ -44,6 +44,7 @@ function Login() {
           value={email}
           placeholder="example@email.com"
           onChange={(e) => onChange(e)}
+          required
         />
         <label>Password:</label>
         <input
@@ -52,6 +53,7 @@ function Login() {
           value={password}
           placeholder="Password"
           onChange={(e) => onChange(e)}
+          required
         />
         <input type="submit" />
       </form>
