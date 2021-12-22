@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { createProfile } from "../../actions/profile";
 
 function CreateProfile() {
-  const [formDate, setFormData] = useState({
+  const [formData, setFormData] = useState({
     bio: "",
     city: "",
     state: "",
