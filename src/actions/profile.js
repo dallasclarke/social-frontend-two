@@ -16,3 +16,26 @@ export const getCurrentProfile = () => async (dispatch) => {
     });
   }
 };
+
+export const createProfile =
+  ({ bio, location, state }) =>
+  async (dispatch) => {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const body = JSON.stringify({ bio, location, state });
+      const res = await axios.post("/api/profile", body, config);
+
+      dispatch({
+        type: GET_PROFILE,
+        payload: res.data
+      })
+
+    } catch (err) {
+      console.log(err);
+    }
+  };
