@@ -12,3 +12,7 @@ export const REMOVE_ALERT = "REMOVE_ALERT";
 // Posts
 export const GET_POSTS = "GET_POSTS";
 export const ADD_POST = "ADD_POST";
+
+// Profile
+export const GET_PROFILE = "GET_PROFILE";
+export const CLEAR_PROFILE = "CLEAR_PROFILE";
