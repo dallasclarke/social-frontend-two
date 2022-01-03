@@ -14,14 +14,12 @@ function Profile() {
   const posts = useSelector((state) => state.posts.posts);
 
   useEffect(() => {
-    dispatch(getCurrentProfile())
-  }, [dispatch, getCurrentProfile])
+    dispatch(getCurrentProfile());
+  }, [dispatch, getCurrentProfile]);
 
   const userProfile = profile.profile;
   const loading = profile.loading;
   const usersPosts = posts.filter((post) => post.user === user);
-
-  console.log(usersPosts);
 
   return loading && userProfile === null ? (
     <>
