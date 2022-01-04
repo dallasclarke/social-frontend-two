@@ -1,15 +1,19 @@
 import React from "react";
 import moment from "moment";
+import { useSelector } from "react-redux";
 import { RiMapPin2Fill } from "react-icons/ri";
 import { FaBirthdayCake, FaCalendarCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import CreateProfile from "../createProfile/CreateProfile";
 
 function About({ profile }) {
+  const userName = useSelector((state) => state.auth.user.name)
+
   return profile !== null ? (
     <div className="about">
       <div className="start">
-        <h2>{profile.user.name}</h2>
+        <h2>{userName}</h2>
       </div>
       <div className="bio">{profile.bio}</div>
       <div className="user-info">
@@ -28,7 +32,11 @@ function About({ profile }) {
       </div>
     </div>
   ) : (
-    <CreateProfile />
+    // <CreateProfile />
+    <>
+      <h3>You have not setup a profile, lets add your info!</h3>
+      <Link to="/create-profile">Create Profile</Link>
+    </>
   );
 }
 

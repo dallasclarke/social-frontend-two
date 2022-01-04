@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Redirect } from "react-router-dom";
 
 import { createProfile } from "../../actions/profile";
 
@@ -13,6 +14,7 @@ function CreateProfile() {
   const { bio, city, state } = formData;
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onChange = (e) => {
     setFormData({
@@ -24,6 +26,7 @@ function CreateProfile() {
   const onSubmit = async (e) => {
     e.preventDefault();
     dispatch(createProfile({ bio, city, state }));
+    history.push("/profile")
   };
 
   return (
