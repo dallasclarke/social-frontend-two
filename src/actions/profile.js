@@ -18,7 +18,7 @@ export const getCurrentProfile = () => async (dispatch) => {
 };
 
 export const createProfile =
-  ({ bio, location, state }) =>
+  ({ bio, city, state }) =>
   async (dispatch) => {
     try {
       const config = {
@@ -27,7 +27,7 @@ export const createProfile =
         },
       };
 
-      const body = JSON.stringify({ bio, location, state });
+      const body = JSON.stringify({ bio, city, state });
       const res = await axios.post("/api/profile", body, config);
 
       dispatch({

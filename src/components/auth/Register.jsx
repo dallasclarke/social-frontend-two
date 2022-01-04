@@ -10,11 +10,11 @@ function Register() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    fullName: "",
+    name: "",
     birthday: "",
   });
 
-  const { email, password, fullName, birthday } = formData;
+  const { email, password, name, birthday } = formData;
 
   const { isAuth } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Register() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    dispatch(register({ email, password, fullName, birthday }));
+    dispatch(register({ email, password, name, birthday }));
   };
 
   if (isAuth) {
@@ -57,8 +57,8 @@ function Register() {
         <label>Full Name:</label>
         <input
           type="text"
-          name="fullName"
-          value={fullName}
+          name="name"
+          value={name}
           onChange={(e) => onChange(e)}
           required
         />

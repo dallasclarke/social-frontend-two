@@ -22,7 +22,7 @@ export const loadUser = () => async (dispatch) => {
 };
 
 export const register =
-  ({ email, password, fullName, birthday }) =>
+  ({ email, password, name, birthday }) =>
   async (dispatch) => {
     const config = {
       headers: {
@@ -33,7 +33,7 @@ export const register =
     const body = JSON.stringify({
       email,
       password,
-      fullName,
+      name,
       birthday,
     });
 

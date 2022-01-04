@@ -23,6 +23,7 @@ function CreateProfile() {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    dispatch(createProfile({ bio, city, state }));
   };
 
   return (
@@ -30,11 +31,28 @@ function CreateProfile() {
       <h1>Lets create your new profile!</h1>
       <form onSubmit={(e) => onSubmit(e)}>
         <label>Bio:</label>
-        <textarea />
+        <textarea
+          name="bio"
+          value={bio}
+          onChange={(e) => onChange(e)}
+          required
+        />
         <label>City:</label>
-        <input type="text" />
+        <input
+          type="text"
+          name="city"
+          value={city}
+          onChange={(e) => onChange(e)}
+          required
+        />
         <label>State/Province</label>
-        <input type="text" />
+        <input
+          type="text"
+          name="state"
+          value={state}
+          onChange={(e) => onChange(e)}
+          required
+        />
         <input type="submit" value="Submit" />
       </form>
     </div>
