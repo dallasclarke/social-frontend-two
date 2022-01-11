@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getProfiles } from "../../actions/profile";
 
 import "./Users.css";
 
 function Users() {
-    return (
-        <div>
-            <h1>Users</h1>
-        </div>
-    )
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProfiles());
+  }, [getProfiles]);
+
+  return (
+    <div>
+      <h1>Users</h1>
+    </div>
+  );
 }
 
-export default Users
+export default Users;
