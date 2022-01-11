@@ -12,6 +12,7 @@ import PrivateRoute from "./components/auth/PrivateRoute";
 import Feed from "./components/feed/Feed";
 import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/createProfile/CreateProfile";
+import Users from "./components/users/Users";
 
 import "./App.css";
 
@@ -30,6 +31,7 @@ function App() {
         <Switch>
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/users" component={Users} />
           <PrivateRoute path="/create-profile" component={CreateProfile} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/" component={Feed} />

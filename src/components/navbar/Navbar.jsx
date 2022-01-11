@@ -16,7 +16,7 @@ function Navbar() {
           <Link to="/profile">Profile</Link>
         </li>
         <li>
-          <a>Users</a>
+          <Link to="/users">Users</Link>
         </li>
         <li>
           <a onClick={() => dispatch(logout())}>Logoout</a>

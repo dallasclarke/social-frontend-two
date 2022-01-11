@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_PROFILE, CLEAR_PROFILE } from "./types";
+import { GET_PROFILE, CLEAR_PROFILE, GET_PROFILES } from "./types";
 
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -32,10 +32,22 @@ export const createProfile =
 
       dispatch({
         type: GET_PROFILE,
-        payload: res.data
-      })
-
+        payload: res.data,
+      });
     } catch (err) {
       console.log(err);
     }
   };
+
+export const getProfiles = () => async (dispatch) => {
+  try {
+    const res = await axios.get("/api/profile");
+
+    dispatch({
+      type: GET_PROFILES,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
