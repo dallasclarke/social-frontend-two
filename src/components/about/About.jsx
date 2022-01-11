@@ -5,15 +5,14 @@ import { RiMapPin2Fill } from "react-icons/ri";
 import { FaBirthdayCake, FaCalendarCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import CreateProfile from "../createProfile/CreateProfile";
-
 function About({ profile }) {
-  const userName = useSelector((state) => state.auth.user.name)
+  // const userName = useSelector((state) => state.auth.user.name)
+  // console.log("profile =>", profile);
 
   return profile !== null ? (
     <div className="about">
       <div className="start">
-        <h2>{userName}</h2>
+        <h2>{profile.user.name}</h2>
       </div>
       <div className="bio">{profile.bio}</div>
       <div className="user-info">
