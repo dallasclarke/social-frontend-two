@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../actions/auth";
 
 function Navbar() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <nav className="navbar">
       <ul className="nav-items">
@@ -17,6 +17,9 @@ function Navbar() {
         </li>
         <li>
           <Link to="/users">Users</Link>
+        </li>
+        <li>
+          <Link to="/settings">Settings</Link>
         </li>
         <li>
           <a onClick={() => dispatch(logout())}>Logoout</a>

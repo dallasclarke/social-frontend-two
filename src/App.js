@@ -13,6 +13,7 @@ import Feed from "./components/feed/Feed";
 import Profile from "./components/profile/Profile";
 import CreateProfile from "./components/createProfile/CreateProfile";
 import Users from "./components/users/Users";
+import Settings from "./components/settings/Settings";
 
 import "./App.css";
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/users" component={Users} />
+          <Route path="/settings" component={Settings} />
           <PrivateRoute path="/create-profile" component={CreateProfile} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/" component={Feed} />
