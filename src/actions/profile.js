@@ -1,6 +1,11 @@
 import axios from "axios";
 
-import { GET_PROFILE, CLEAR_PROFILE, GET_PROFILES } from "./types";
+import {
+  GET_PROFILE,
+  CLEAR_PROFILE,
+  GET_PROFILES,
+  PROFILE_DELETED,
+} from "./types";
 
 export const getCurrentProfile = () => async (dispatch) => {
   try {
@@ -47,6 +52,17 @@ export const getProfiles = () => async (dispatch) => {
       type: GET_PROFILES,
       payload: res.data,
     });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
+export const deleteProfile = () => async (dispatch) => {
+  try {
+    await axios.delete(`/api/profile`);
+
+    dispatch({ type: CLEAR_PROFILE });
+    dispatch({ type: PROFILE_DELETED });
   } catch (err) {
     console.log(err.message);
   }

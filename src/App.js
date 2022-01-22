@@ -33,7 +33,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/users" component={Users} />
-          <Route path="/settings" component={Settings} />
+          <PrivateRoute path="/settings" component={Settings} />
           <PrivateRoute path="/create-profile" component={CreateProfile} />
           <PrivateRoute path="/profile" component={Profile} />
           <PrivateRoute path="/" component={Feed} />
